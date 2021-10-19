@@ -1,0 +1,6 @@
+public class SoftMax{
+  double output[][] ;
+  public void forward(double[][] in){
+  output = new double[in.length][in[0].length];
+  
+}
