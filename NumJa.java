@@ -9,6 +9,25 @@ public class NumJa{
         }
         return out;
     }
+    public static double[][] rand2dArray(int x,int y){
+        Random random = new Random();
+        double[][] out = new double[x][y];
+        for(int i=0; i<x;i++){
+            for(int k=0; k<y;k++){
+                out[i][k] = 0.05 * random.nextDouble() -0.5;
+            }
+            
+        }
+        return out;
+    }
+    public static double[][] add2dArray(double[][] a,double[][]b){
+        for (int i=0; i<a.length; i++){
+            for (int k=0; k<a[0].length; k++){
+                a[i][k] += b[i][k];
+            }
+        }
+        return a;
+    }
     public static void printArray(double[] array){
        
         for(int i=0; i<array.length; i++){
@@ -38,6 +57,15 @@ public class NumJa{
             sum+= input[i] * weight[i];
         }
         return sum;
+    }
+    public static double[] dotDivide(double[][] weight, double input){
+        double[] output = new double[weight.length];
+        for(int i =0; i<weight.length; i++){
+            for(int k=0; k<weight[0].length; k++){
+                output[i] = weight[i][k] / input;
+            }
+        }
+        return output;
     }
     public static double[] dotProduct(double[][] weight, double[] input){
         double[] output = new double[weight.length];
@@ -71,6 +99,26 @@ public class NumJa{
         }
         return ans;
         }
+    public static double mean(double[]in){
+        return NumJa.sum(in)/in.length;
+    }
+    public static double[][] divRowByCol(double[][]a,double[][]b){
+        double[][] out = new double[a.length][a[0].length];
+        for(int i =0; i<a.length; i++){
+            for(int u=0; u<a[0].length; u++){
+                out[i][u] = a[i][u] / b[i][0];
+            }
+        }
+
+        return out;
+    }
+    public static double[][] sumColumn(double[][]in){
+        double[][]out = new double[in.length][1];
+        for(int i =0; i<in.length; i++){
+            out[i][0] = sum(in[i]);
+        }
+        return out;
+    }
     public static double sum(double[][]in){
         double sum=0;
         for(int i=0; i<in.length;i++){
@@ -109,7 +157,17 @@ public class NumJa{
         }
         return output;
     }
+    public static double[][] dotAdd(double[][] in, double in2){
+        for(int i=0; i<in.length; i++){
+            for(int k=0; k<in[0].length; k++){
+                in[i][k] += in2;
+            }
+        }
+        return in;
+
+    }
     public static double ReLU(double summedInput){
         return Math.max(0,summedInput);
     }
+    
 }

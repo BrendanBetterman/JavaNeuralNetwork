@@ -1,6 +1,6 @@
 
 public class Layer{
-    double[][] weights;
+    public double[][] weights;
     double[] bias ;
     public double[][] output;
     public Layer(int numInputs,int numNeurons){
